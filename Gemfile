@@ -33,6 +33,9 @@ gem 'bootstrap', "~> 5.3.0.alpha3"
 # add jquery to the project
 gem 'jquery-rails', "~> 4.4.0"
 
+# add simple form to the project
+gem 'simple_form', '~> 5.2'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
