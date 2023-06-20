@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Gabble</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,18 +10,32 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-  <% flash.each do |key, value| %>
-    <% if key == "notice" %>
-      <div class="alert alert-success" role="alert">
-        <%= value %>
+  <body data-bs-theme="dark">
+    <div class="main-container">
+      <!-- Header Start -->
+      <div class="header border-bottom border-bottom-dark px-3">
+        <%= render "layouts/header" %>
       </div>
-    <% elsif key == "alert" %>
-      <div class="alert alert-danger" role="alert">
-        <%= value %>
+      <!-- Header End -->
+      <div class="messages-container w-50 mx-auto my-3">
+        <!-- Flash messages -->
+        <% flash.each do |key, value| %>
+          <% if key == "notice" %>
+            <div class="alert alert-success" role="alert">
+              <%= value %>
+            </div>
+          <% elsif key == "alert" %>
+            <div class="alert alert-danger" role="alert">
+              <%= value %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-    <% end %>
-  <% end %>
-    <%= yield %>
+
+      <!-- Main content -->
+      <div class="main-content container  pt-4">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
