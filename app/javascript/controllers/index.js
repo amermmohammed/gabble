@@ -1,5 +1,8 @@
 // Import and register all your controllers from the importmap under controllers/*
-
+//= require popper
+//= require bootstrap
+//= require jquery3
+//= require jquery_ujs
 import { application } from "controllers/application"
 
 // Eager load all controllers defined in the import map under controllers/**/*_controller

@@ -27,6 +27,12 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# add bootstrap to the project
+gem 'bootstrap', "~> 5.3.0.alpha3"
+
+# add jquery to the project
+gem 'jquery-rails', "~> 4.4.0"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
