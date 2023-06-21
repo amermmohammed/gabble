@@ -17,20 +17,10 @@
         <%= render "layouts/header" %>
       </div>
       <!-- Header End -->
-      <div class="messages-container w-50 mx-auto my-3">
-        <!-- Flash messages -->
-        <% flash.each do |key, value| %>
-          <% if key == "notice" %>
-            <div class="alert alert-success" role="alert">
-              <%= value %>
-            </div>
-          <% elsif key == "alert" %>
-            <div class="alert alert-danger" role="alert">
-              <%= value %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+
+      <!-- Flash Messages -->
+      <%= render "layouts/alerts" %>
+      <!-- Flash Messages End -->
 
       <!-- Main content -->
       <div class="main-content container  pt-4">
