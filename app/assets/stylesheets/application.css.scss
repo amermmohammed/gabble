@@ -13,5 +13,52 @@
  *= require_tree .
  *= require_self
  */
-
+// import bootstrap
 @import "bootstrap";
+
+// import 7-1 pattern files start
+
+// import abstracts files
+@import "abstracts/_variables";
+@import "abstracts/_mixins";
+@import "abstracts/_functions";
+
+// import base files
+@import "base/_reset";
+@import "base/_typography";
+
+// import components files
+@import "components/_buttons";
+@import "components/_carousel";
+@import "components/_cover";
+@import "components/_dropdown";
+@import "components/_forms";
+@import "components/_grid";
+@import "components/_jumbotron";
+@import "components/_list-group";
+@import "components/_media";
+@import "components/_modals";
+@import "components/_navbar";
+@import "components/_navs";
+@import "components/_pagination";
+@import "components/_progress";
+@import "components/_tables";
+@import "components/_tooltip";
+
+// import layout files
+@import "layout/_header";
+@import "layout/_footer";
+
+// import pages files
+@import "pages/_home";
+
+// import themes files
+@import "themes/_theme";
+
+// import vendors files
+@import "vendors/*";
+
+// import 7-1 pattern files end
+
+
+

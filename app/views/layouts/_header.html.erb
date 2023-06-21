@@ -7,14 +7,14 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarContent">
-    <ul class="navbar-nav flex-row-lg ms-auto">
+    <ul class="navbar-nav">
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+          <a id="navbarDropdown" class="nav-link dropdown-menu-right" href="#" role="button" data-bs-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-            <%= current_user.username %>
+            <%= gravatar_tag current_user.email, size: 40, html: {class: "rounded-circle"} %>
           </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Profile</a>
             <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
             <div class="dropdown-divider"></div>

@@ -1,0 +1,71 @@
+// import variables
+@import "abstracts/variables";
+#navbarContent {
+  .navbar-nav {
+    display: flex;
+    margin-left: auto;
+    .nav-item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      &.dropdown {
+        flex-direction: column;
+        align-items: flex-start;
+       .nav-link {
+        margin-right: 1rem;
+        }
+      }
+      .nav-link {
+        display: flex;
+      }
+    }
+  }
+}
+
+// landscape phone viewport and up
+@media screen and (min-width: $phoneWidthLandscape) {
+  #navbarContent {
+    .navbar-nav {
+      .nav-item {
+        &.dropdown {
+          flex-direction: row;
+        }
+      }
+    }
+  }
+}
+
+// tablet viewport and up
+@media screen and (min-width: $tabletWidthPortrait) {
+
+}
+
+// tablet landscape viewport and up
+@media screen and (min-width: $tabletWidthLandscape) {
+  #navbarContent {
+    .navbar-nav {
+      flex-direction: row-reverse;
+      .dropdown-menu {
+        &.show {
+          display: block;
+          right: 50%;
+          left: inherit;
+          text-align: center;
+          transform: translate(50%);
+        }
+      }
+      .nav-item {
+        &.dropdown {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+// desktop viewport and up
+@media screen and (min-width: $desktopWidth) {
+
+}
+
+
