@@ -2,6 +2,9 @@
 
 <div class="row bg-light text-dark rounded-2 border border-4 border-primary p-2 mx-auto text-center align-items-center">
 <div class="col-12">
+  <div class="profile-cover">
+    <%= @user.cover_image %>
+  </div>
   <h4 class="title">User Profile</h4>
 </div>
   <div class="col-12 col-md-3">
@@ -14,14 +17,27 @@
       <%= current_user.username %>
     </h2>
     <h6 class="my-2">
+      Name: <%= @user.first_name %> <%= @user.last_name %>
+    </h6>
+    <h6 class="my-2">
       Email: <a href="mailto:<%= current_user.email %>"><%= current_user.email %></a>
     </h6>
-    <h6 class="my-2">Sex: Male</h6>
-    <h6 class="my-2">Age: 25</h6>
-    <h6 class="my-2">Location: New York</h6>
-    <h6 class="my-2">Occupation: Web Developer</h6>
-    <h6 class="my-2">Interests: Web Development, Programming, Design, 3D Printing, Gaming</h6>
-    <h6 class="my-2">About Me: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</h6>
+    <h6 class="my-2">Sex:  <%= @user.gender %></h6>
+    <h6 class="my-2">Age: <%= @user.age %> </h6>
+    <h6 class="my-2">Birthday: <%= @user.birthday %></h6>
+    <h6 class="my-2">Relationship <%= @user.relationship %></h6>
+    <h6 class="my-2">
+      Address: <br/>
+      <%= @user.address %> <%= @user.city %> <br/>
+      <%= @user.zip %> <%= @user.state %> <br/>
+      <%= @user.country %>
+    </h6>
+    <h6 class="my-2">Occupation: <%= @user.work %></h6>
+    <h6 class="my-2">Previous Jobs: <%= @user.previous_jobs %></h6>
+    <h6 class="my-2">Education: <%= @user.education %></h6>
+    <h6 class="my-2">Previous Education: <%= @user.previous_education %></h6>
+    <h6 class="my-2">Phone: <%= @user.phone %></h6>
+    <h6 class="my-2">About Me: <%= @user.bio %></h6>
   </div>
 
   <div class="col-12 ranking mt-2">
