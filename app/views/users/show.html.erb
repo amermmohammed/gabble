@@ -1,5 +1,4 @@
 <!-- User Profile Section Start -->
-
 <div class="row bg-light text-dark rounded-2 border border-4 border-primary p-2 mx-auto text-center align-items-center">
 <div class="col-12">
   <div class="profile-cover">
@@ -9,12 +8,13 @@
 </div>
   <div class="col-12 col-md-3">
     <div class="profile-img">
-      <%= gravatar_tag current_user.email, size: 400, html: {class: "img-fluid border"} %>
+      <%= gravatar_tag @user.email, size: 400, html: {class: "img-fluid border"} %>
     </div>
   </div>
   <div class="col-12 col-md-9 text-start">
-    <h2 class="my-2">
-      <%= current_user.username %>
+    <h2 class="my-2 d-flex gap-2">
+      <%= @user.username %>
+      <%= render 'follow_buttons', user: @user %>
     </h2>
     <h6 class="my-2">
       Name: <%= @user.first_name %> <%= @user.last_name %>
@@ -37,7 +37,6 @@
     <h6 class="my-2">Education: <%= @user.education %></h6>
     <h6 class="my-2">Previous Education: <%= @user.previous_education %></h6>
     <h6 class="my-2">Phone: <%= @user.phone %></h6>
-    <h6 class="my-2">About Me: <%= @user.bio %></h6>
   </div>
 
   <div class="col-12 ranking mt-2">
@@ -45,8 +44,12 @@
     <h6 class="profile-rating my-2">RANKINGS : <span>8/10</span></h6>
     <h6 class="profile-rating my-2">MEMBER SINCE : <span><%= current_user.created_at.strftime("%B %Y") %></span></h6>
     <!--<h6 class="profile-rating">LAST SEEN : <span><%#= current_user.last_sign_in_at.strftime("%B %Y") %></span></h6>-->
-    <h6 class="profile-rating">Followers Count: X</h6>
-    <h6 class="profile-rating">Following Count: X</h6>
+    <h6 class="profile-rating">
+      <%= link_to "followers", followers_user_path(@user.username) %>: <%= @user.followers.count %>
+    </h6>
+    <h6 class="profile-rating">
+      <%= link_to "following", following_user_path(@user.username) %>: <%= @user.following.count %>
+    </h6>
   </div>
 </div>
 
@@ -55,7 +58,7 @@
   <div class="col-12">
     <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="pills-visitors-tab" data-bs-toggle="pill" data-bs-target="#pills-visitors" type="button" role="tab" aria-controls="pills-visitors" aria-selected="true">Visitors</button>
+        <button class="nav-link active" id="pills-visitors-tab" data-bs-toggle="pill" data-bs-target="#pills-visitors" type="button" role="tab" aria-controls="pills-visitors" aria-selected="true">About me</button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-following-tab" data-bs-toggle="pill" data-bs-target="#pills-following" type="button" role="tab" aria-controls="pills-following" aria-selected="false">Following</button>
@@ -71,79 +74,45 @@
 
       <div class="col-12 tab-pane fade show active p-3 text-dark" id="pills-visitors" role="tabpanel" aria-labelledby="pills-visitors-tab" tabindex="0">
         <!-- User Profile Visitors Dummy List-->
-        <p>Visitors in the Last 6 Months</p>
-        <div class="profile-work d-flex flex-wrap justify-content-start gap-2 text-center">
-          <div class="card m-auto p-2">
-            <div class="card-image mb-2">
-              <%= gravatar_tag current_user.email, html: {class: "rounded-4"}%>
-            </div>
-            <a href=""> Visitor 1</a>
-          </div>
-          <div class="card m-auto p-2">
-            <div class="card-image mb-2">
-              <%= gravatar_tag current_user.email, html: {class: "rounded-4"}%>
-            </div>
-            <a href=""> Visitor 2</a>
-          </div>
-          <div class="card m-auto p-2">
-            <div class="card-image mb-2">
-              <%= gravatar_tag current_user.email, html: {class: "rounded-4"}%>
-            </div>
-            <a href=""> Visitor 3</a>
-          </div>
-          <div class="card m-auto p-2">
-            <div class="card-image mb-2">
-              <%= gravatar_tag current_user.email, html: {class: "rounded-4"}%>
-            </div>
-            <a href=""> Visitor 4</a>
-          </div>
-          <div class="card m-auto p-2">
-            <div class="card-image mb-2">
-              <%= gravatar_tag current_user.email, html: {class: "rounded-4"}%>
-            </div>
-            <a href=""> Visitor 5</a>
-          </div>
-          <div class="card m-auto p-2">
-            <div class="card-image mb-2">
-              <%= gravatar_tag current_user.email, html: {class: "rounded-4"}%>
-            </div>
-            <a href=""> Visitor 6</a>
-          </div>
-          <div class="card m-auto p-2">
-            <div class="card-image mb-2">
-              <%= gravatar_tag current_user.email, html: {class: "rounded-4"}%>
-            </div>
-            <a href=""> Visitor 7</a>
-          </div>
-          <div class="card m-auto p-2">
-            <div class="card-image mb-2">
-              <%= gravatar_tag current_user.email, html: {class: "rounded-4"}%>
-            </div>
-            <a href=""> Visitor 8</a>
-          </div>
-          <div class="card m-auto p-2">
-            <div class="card-image mb-2">
-              <%= gravatar_tag current_user.email, html: {class: "rounded-4"}%>
-            </div>
-            <a href=""> Visitor 9</a>
-          </div>
-          <div class="card m-auto p-2">
-            <div class="card-image mb-2">
-              <%= gravatar_tag current_user.email, html: {class: "rounded-4"}%>
-            </div>
-            <a href=""> Visitor 10</a>
-          </div>
+        <div class="profile-work d-flex flex-wrap justify-content-start gap-2 text-start">
+         <!-- display all the users -->
+          <h3 class="display-5"><%= @user.username %>, <span class="h4"><%= @user.bio %></span></h3>
+
         </div>
       </div>
 
       <div class="col-12 tab-pane fade" id="pills-following" role="tabpanel" aria-labelledby="pills-following-tab" tabindex="0">
-        <!-- following Dummy random usernames List-->
-        <P>Following List</P>
+        <div class="profile-work d-flex flex-wrap justify-content-start gap-2 text-center py-3">
+          <% if @user.following.length < 1 %>
+            <h3 class="text-center"><%= @user.username %> follows nobody yet!</h3>
+          <% else %>
+            <% @user.following.each do |user| %>
+              <div class="card m-auto p-2">
+                <div class="card-image mb-2">
+                  <%= gravatar_tag user.email,  html: {class: "rounded-4"} %>
+                </div>
+                <a href=""> <%= link_to user.username, user_path(user.username) %></a>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
 
       <div class="col-12 tab-pane fade" id="pills-followers" role="tabpanel" aria-labelledby="pills-followers-tab" tabindex="0">
-        <!-- followers Dummy random usernames List-->
-        <P>Followers List</P>
+        <div class="profile-work d-flex flex-wrap justify-content-start gap-2 text-center py-3">
+          <% if @user.followers.length < 1 %>
+              <h3 class="text-center"><%= @user.username %> has no followers yet!</h3>
+          <% else %>
+            <% @user.followers.each do |user| %>
+              <div class="card m-auto p-2">
+                <div class="card-image mb-2">
+                  <%= gravatar_tag user.email,  html: {class: "rounded-4"} %>
+                </div>
+                <a href=""> <%= link_to user.username, user_path(user.username) %></a>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
 
   </div>
