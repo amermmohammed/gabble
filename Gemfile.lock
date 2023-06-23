@@ -264,7 +264,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails (~> 4.4.0)
-  public_activity (~> 2.0, >= 2.0.2)
+  public_activity (~> 2.0)
   puma (~> 5.0)
   rails (~> 7.0.5)
   selenium-webdriver

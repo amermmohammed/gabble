@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Migration responsible for creating a table with activities
-class CreateActivities < ActiveRecord::Migration[5.1]
+class CreateActivities < ActiveRecord::Migration[7.0]
   def self.up
     create_table :activities do |t|
       t.belongs_to :trackable, polymorphic: true

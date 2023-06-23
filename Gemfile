@@ -58,7 +58,7 @@ gem "bootsnap", require: false
 gem "gravatarify", "~> 3.0"
 
 # Add Public Activity to the project
-gem 'public_activity', '~> 2.0', '>= 2.0.2'
+gem 'public_activity', '~> 2.0'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
