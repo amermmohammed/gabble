@@ -28,16 +28,16 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # add bootstrap to the project
-gem 'bootstrap', "~> 5.3.0.alpha3"
+gem "bootstrap", "~> 5.3.0.alpha3"
 
 # add jquery to the project
-gem 'jquery-rails', "~> 4.4.0"
+gem "jquery-rails", "~> 4.4.0"
 
 # add simple form to the project
-gem 'simple_form', '~> 5.2'
+gem "simple_form", '~> 5.2'
 
 # add devise to the project
-gem 'devise', '~> 4.9', '>= 4.9.2'
+gem "devise", "~> 4.9", ">= 4.9.2"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -58,7 +58,10 @@ gem "bootsnap", require: false
 gem "gravatarify", "~> 3.0"
 
 # Add Public Activity to the project
-gem 'public_activity', '~> 2.0'
+gem "public_activity", "~> 2.0"
+
+# Add auto_html to the project
+gem "auto_html", "~> 2.1"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
