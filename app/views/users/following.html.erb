@@ -1,5 +1,6 @@
-<div class="card m-auto p-2">
+<div class="container my-3">
   <h1>Gabblers followed by <%= @user.username %> </h1>
-  <hr class="my-4">
-  <%= render @users %>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+    <%= render @users %>
+  </div>
 </div>

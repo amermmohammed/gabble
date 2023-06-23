@@ -1,12 +1,18 @@
-<div class="col-3 my-2">
-  <div class="card bg-light text-dark">
+<div class="col">
+  <div class="card">
     <%= link_to user_path(user.username) do %>
-      <%= gravatar_tag user.email, size: 500, html: {class: "card-img-top img-fluid", title: user.username } %>
+      <%= gravatar_tag user.email, size: 500, html: { class: "card-img-top img-fluid border-bottom", title: user.username } %>
     <% end %>
     <div class="card-body">
       <h4 class="card-title text-center mt-0">
         <%= user.username %>
-        <%= render "follow_buttons", user: user %>
+        <% if user.username == current_user.username %>
+          <div class="form-group">
+            <p class="btn btn-primary mb-0 disabled">You</p>
+          </div>
+        <% else %>
+          <%= render "follow_buttons", user: user %>
+        <% end %>
       </h4>
     </div>
   </div>
