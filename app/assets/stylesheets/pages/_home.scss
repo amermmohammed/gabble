@@ -1,0 +1,50 @@
+@import "../abstracts/variables";
+@import "../abstracts/functions";
+
+.activities-main-container {
+  .activity-card {
+    display: flex;
+    flex-direction: column;
+    .text {
+      p {
+        display: flex;
+        flex-wrap: wrap;
+        gap: unitize(8);
+        font-size: unitize(16);
+        margin-top: unitize(16);
+      }
+    }
+  }
+}
+
+
+
+// landscape phone viewport and up
+@media screen and (min-width: $phoneWidthLandscape) {
+  .activities-main-container {
+    .activity-card {
+      flex-direction: row;
+      gap : unitize(16);
+    }
+  }
+}
+
+// tablet viewport and up
+@media screen and (min-width: $tabletWidthPortrait) {
+
+}
+
+// tablet landscape viewport and up
+@media screen and (min-width: $tabletWidthLandscape) {
+  .activities-main-container {
+    width: 75%;
+  }
+}
+
+// desktop viewport and up
+@media screen and (min-width: $desktopWidth) {
+  .activities-main-container {
+    width: 50%;
+  }
+}
+
