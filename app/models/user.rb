@@ -15,6 +15,9 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
 
+  # tweets
+  has_many :tweets, dependent: :destroy # if user is deleted, all tweets are deleted
+
   # defining following, unfollow events
 
   def follow(user)
