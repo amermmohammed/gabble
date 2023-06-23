@@ -52,6 +52,17 @@
     </h6>
   </div>
 </div>
+
+<div class="row my-4">
+  <h4 class="text-center">Gabble</h4>
+  <div class="tweets-container">
+    <% if user_signed_in? && current_user == @user %>
+      <%= render 'tweets/form' %>
+    <% end %>
+    <%= render @tweets %>
+  </div>
+</div>
+
 <div class="row my-4 text-dark">
   <!-- Profile Visitors List -->
   <div class="col-12">
@@ -112,6 +123,7 @@
         </div>
       </div>
       <div class="col-12 tab-pane fade" id="pills-activity" role="tabpanel" aria-labelledby="pills-activity-tab" tabindex="0">
+
         <div class="profile-work d-flex flex-wrap justify-content-start gap-2 text-center py-3">
           <% if @activities.length < 1 %>
             <h3 class="text-center">

@@ -1,0 +1,13 @@
+<!-- Tweet Component start -->
+<%= simple_form_for(@tweet) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.input :content, required: true, autofocus: true, label: false, hint: "#{200-@tweet.content.to_s.length}", placeholder: "What's happening?",
+                input_html: { class: "form-control", rows: 3, maxlength: 200 }
+    %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, "Gabble", class: "btn btn-primary" %>
+  </div>
+<% end %>
+<!-- Tweet Component end -->

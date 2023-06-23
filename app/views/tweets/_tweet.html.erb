@@ -1,0 +1,24 @@
+<!-- display tweets card start -->
+<div class="card tweet-<%= tweet.id %> my-2">
+  <div class="card-header">
+    <%= gravatar_tag tweet.user.email, size: 40, :html => {class: "rounded-circle"} %>
+    <% tweet.user.username %> gabbled
+    <%= time_ago_in_words(tweet.created_at) %> ago
+    <% if user_signed_in? && current_user == tweet.user %>
+      <%= link_to 'Edit', edit_tweet_path(tweet), class: 'btn btn-primary btn-sm' %>
+      <%= link_to 'Delete', tweet_path(tweet), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+      <!-- if tweet was edited show edit -->
+      <% if tweet.updated_at != tweet.created_at %>
+        <span class="badge badge-pill badge-warning">edited <%= time_ago_in_words(tweet.updated_at) %> ago</span>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      <%= raw(tweet.content_html) %>
+    </p>
+  </div>
+</div>
+<!-- display tweets card end -->
+
+

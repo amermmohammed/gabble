@@ -13,9 +13,14 @@ class UsersController < ApplicationController
   end
 
   def show
+    # Get all activities of the user
     @activities = PublicActivity::Activity.where(owner: @user) + PublicActivity::Activity.where(recipient: @user)
     @activities.uniq!
     @activities.sort_by!(&:created_at).reverse!
+    # create a new tweet for the user
+    @tweet = Tweet.new
+    # get all tweets of the user
+    @tweets = @user.tweets.order(created_at: :desc)
   end
 
   def followers

@@ -5,6 +5,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = current_user.tweets.new(tweet_params)
     if @tweet.save
+      @tweet.create_activity key: "tweet.created", owner: @tweet.user
       redirect_to user_path(@tweet.user.username), notice: "Tweet was successfully created."
     else
       redirect_to user_path(@tweet.user.username), notice: "Tweet was not created."

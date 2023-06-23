@@ -1,0 +1,14 @@
+<% if activity.trackable %>
+  <li class="list-group-item d-flex align-items-center gap-3 rounded my-2 bg-success text-light">
+    <%= link_to activity.owner.username do %>
+      <%= gravatar_tag activity.owner.email, size: 25, html: {class: "img-fluid border rounded", title: activity.owner.username } %>
+    <% end %>
+    <h6 class="m-0">gabbled "<%= activity.trackable.content.truncate(20) %>"</h6>
+    <span class="text-muted"><%= time_ago_in_words(activity.created_at) %> ago</span>
+  </li>
+<% end %>
+
+
+
+
+
