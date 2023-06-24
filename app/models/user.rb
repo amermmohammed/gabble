@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # add acts_as_voter to the user model
+  acts_as_voter
+
   # add validations to the user model
   validates_presence_of :username
   validates_uniqueness_of :username
