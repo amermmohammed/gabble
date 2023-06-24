@@ -16,6 +16,7 @@
   <div class="card-body">
     <p class="card-text">
       <%= raw(tweet.content_html) %>
+      <%= render "tweets/like_and_dislike_buttons", tweet: tweet %>
     </p>
   </div>
 </div>

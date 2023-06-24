@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: "registrations" }
   root 'pages#timeline'
+
 
   resources :users, only: [:index, :show] do
     member do
-      get :following, :followers
+      get :following
+      get :followers
     end
   end
 
@@ -14,6 +16,9 @@ Rails.application.routes.draw do
 
   resources :tweets, only: [:create, :edit, :update, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Define likes resources
+  resources :likes, only: [:create, :destroy], param: :likeable_id
 
   # Defines the root path route ("/")
   # root "articles#index"

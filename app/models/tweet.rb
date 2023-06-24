@@ -11,7 +11,7 @@ class Tweet < ApplicationRecord
 
   # add validations of the content existence and length
   validates_presence_of :content
-  validates_length_of :content, maximum: 200, message: "Gabbles are limited to 200 characters."
+  validates_length_of :content, maximum: 200, notice: "Gabbles are limited to 200 characters."
 
   # add auto_html to the user model
   FORMAT = AutoHtml::Pipeline.new(
