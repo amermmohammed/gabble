@@ -8,3 +8,24 @@ $largeDesktopWidth: 90em; // 1440px
 
 // font-size variables
 $base-font-size: 16;
+// base/_variables.scss
+
+$light-background: #fcf5f2;
+$dark-text: #0d0503;
+$light-card-background: #f0e9e6;
+$light-accent: #f2d1c3;
+$light-primary: #e9a990;
+$light-secondary: #f9e8e1;
+
+$dark-background: #030302;
+$dark-card-background: #1a1a1a;
+$light-text: #f7f6f2;
+$dark-accent: #2a2a2a;
+$dark-primary: #3c3c3c;
+$dark-secondary: #1a1a1a;
+
+
+
+$border-color: $light-accent;
+$dark-border-color: $dark-accent;
+

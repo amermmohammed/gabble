@@ -1,0 +1,27 @@
+@import "abstracts/_variables";
+
+:root,
+:root.light-theme {
+  --bg-color: #fcf5f2;
+  --text-color: #0d0503;
+  --card-bg-color:  #f0e9e6;
+  --accent-color: #f2d1c3;
+  --primary-color: #e9a990;
+  --secondary-color: #f9e8e1;
+  --border-color: var(--accent-color);
+}
+
+:root.dark-theme {
+    --bg-color: #040606;
+    --text-color: #f7f6f2;
+    --card-bg-color: #1a1a1a;
+    --accent-color: #2a2a2a;
+    --primary-color: #3c3c3c;
+    --secondary-color: #1a1a1a;
+    --border-color: var(--accent-color);
+}
+
+body, body .main-container{
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}

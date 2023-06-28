@@ -3,3 +3,12 @@
 @function unitize($number) {
   @return $number / $base-font-size * 1rem;
 }
+
+@mixin unitize-all($property, $values...) {
+  $property-value: ();
+  @each $value in $values {
+    $unitized-value: if(type-of($value) == number, unitize($value), $value);
+    $property-value: append($property-value, $unitized-value);
+  }
+  #{$property}: $property-value;
+}
