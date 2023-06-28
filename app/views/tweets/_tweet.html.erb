@@ -1,5 +1,5 @@
 <!-- display tweets card start -->
-<div class="card tweet-<%= tweet.id %> my-2">
+<div class="tweet-card tweet-<%= tweet.id %> my-2">
   <div class="card-header">
     <%= gravatar_tag tweet.user.email, size: 40, :html => {class: "rounded-circle"} %>
     <% tweet.user.username %> gabbled

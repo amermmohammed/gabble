@@ -9,6 +9,7 @@
   --primary-color: #e9a990;
   --secondary-color: #f9e8e1;
   --border-color: var(--accent-color);
+  --accent-hover: #e9a99069;
 }
 
 :root.dark-theme {
@@ -19,6 +20,7 @@
     --primary-color: #3c3c3c;
     --secondary-color: #1a1a1a;
     --border-color: var(--accent-color);
+    --accent-hover: #2a2a2a69;
 }
 
 body, body .main-container{

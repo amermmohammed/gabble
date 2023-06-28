@@ -1,0 +1,14 @@
+@import "_functions";
+@import "../themes/_theme";
+
+// create a light and dark rounded card mixin
+
+@mixin card {
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+  @include unitize-all(border, 2, solid, $border-color);
+  @include unitize-all(border-radius, 5);
+  @include unitize-all(padding, 10);
+  @include unitize-all(margin, 16, auto);
+}
+

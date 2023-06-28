@@ -1,0 +1,6 @@
+@import "../abstracts/_mixins";
+// Create a card from the card mixin
+
+.tweet-card {
+  @include card;
+}

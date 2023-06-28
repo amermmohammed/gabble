@@ -1,0 +1,22 @@
+.text-muted {
+  color: var(--text-color) !important;
+}
+
+.btn {
+  color: var(--text-color);
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.btn:hover {
+  color: var(--text-color);
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+.btn span {
+  background: var(--accent-color) !important;
+  color: var(--text-color) !important;
+}
+.badge {
+  color: var(--text-color);
+  background-color: var(--accent-color);
+}
