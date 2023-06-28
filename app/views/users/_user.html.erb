@@ -1,5 +1,5 @@
-<div class="col">
-  <div class="card">
+<div class="col tweet-card">
+  <div class="activity-card">
     <%= link_to user_path(user.username) do %>
       <%= gravatar_tag user.email, size: 500, html: { class: "card-img-top img-fluid border-bottom", title: user.username } %>
     <% end %>
