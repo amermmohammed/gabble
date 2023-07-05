@@ -8,8 +8,8 @@
       <% @activities.each do |activity| %>
         <% if activity.trackable %>
           <div class="container">
-            <div class="row d-flex tweet-card" data-aos="fade-left"
-                 data-aos-offset="100"
+            <div class="row d-flex tweet-card" data-aos="fade-up"
+                 data-aos-offset="250"
                  data-aos-duration="800">
               <div class="col-12 activity-card">
                 <%= link_to user_path(activity.owner.username), class: "link img-fluid" do %>
