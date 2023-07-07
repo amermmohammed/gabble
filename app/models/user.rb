@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   # tweets
   has_many :tweets, dependent: :destroy # if user is deleted, all tweets are deleted
-
+  has_many :comments, dependent: :destroy # if user is deleted, all comments are deleted
   # defining following, unfollow events
 
   def follow(user)

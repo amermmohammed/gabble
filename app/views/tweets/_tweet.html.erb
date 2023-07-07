@@ -18,6 +18,13 @@
       <%= raw(tweet.content_html) %>
       <%= render "tweets/like_and_dislike_buttons", tweet: tweet %>
     </p>
+    <hr>
+    <div class="card-body">
+      <%= render 'comments/form', tweet: tweet %>
+    </div>
+    <div id="comments-<%= tweet.id %>">
+      <%= render tweet.comments.reverse %>
+    </div>
   </div>
 </div>
 <!-- display tweets card end -->

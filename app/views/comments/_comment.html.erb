@@ -1,0 +1,14 @@
+<div id="comment-<%= comment.id %>" class="tweet-card">
+  <div class="tweet-card tweet-1 my-2">
+    <%= gravatar_tag comment.user.email, size: 25, :html => { :class => 'img-fluid' } %>
+    <%= comment.user.username %> Replied <%= time_ago_in_words(comment.created_at) %> ago
+    <% if user_signed_in? && current_user == comment.user %>
+     <!-- delete comment button -->
+      <%= link_to " ", comment_path(comment), method: :delete, remote: true, class: "btn btn-sm btn-outline-danger fa fa-trash" %>
+     <!-- font awesome delete icon -->
+    <% end %>
+  </div>
+  <div class="tweet-card tweet-1 my-2">
+    <%= raw(comment.comment) %>
+  </div>
+</div>

@@ -45,6 +45,8 @@ gem "font-awesome-sass", "~> 6.4.0"
 # add votable to the project
 gem 'acts_as_votable', '~> 0.14.0'
 
+gem 'acts_as_commentable', git: 'https://github.com/alazycoder101/acts_as_commentable.git'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

@@ -3,6 +3,7 @@ class Tweet < ApplicationRecord
 
   # add acts_as_votable to the model
   acts_as_votable
+  acts_as_commentable
 
   # @user.likes @tweet
 

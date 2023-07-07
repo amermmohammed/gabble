@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: { registrations: "registrations" }
   root 'pages#timeline'
 
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
   # Define likes resources
   resources :likes, only: [:create, :destroy], param: :likeable_id
 
+  # Define comments resources
+  resources :comments, only: [:create, :destroy]
   # Defines the root path route ("/")
   # root "articles#index"
 end

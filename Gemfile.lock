@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/alazycoder101/acts_as_commentable.git
+  revision: 1fb132ecb44ffd574871c116afad78e3d7151b28
+  specs:
+    acts_as_commentable (6.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -265,6 +271,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  acts_as_commentable!
   acts_as_votable (~> 0.14.0)
   auto_html (~> 2.1)
   bcrypt
