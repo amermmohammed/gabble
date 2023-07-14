@@ -53,6 +53,13 @@
                       Replayed on a gabble "<%= ActionView::Base.full_sanitizer.sanitize(activity.trackable.comment.truncate(10)) %>"
                     <span class="text-muted"><%= time_ago_in_words(activity.created_at) %> ago</span>
                     </p>
+                  <% when "Retweet" %>
+                    <p class="lead">
+                      <%= link_to activity.owner.username, user_path(activity.owner.username), class: "nav-link text-danger" %>
+                      Retweeted
+                      <%= link_to activity.recipient.username, user_path(activity.recipient.username), class: "nav-link text-success" %>
+                      's gabble
+                    </p>
                   <% end %>
                   <span class="text-muted"><%= time_ago_in_words(activity.created_at) %> ago</span>
                   <% if activity.trackable.updated_at != activity.trackable.created_at %>

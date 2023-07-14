@@ -1,0 +1,16 @@
+<% if activity.trackable %>
+  <li class="list-group-item">
+    <span>
+      <%= link_to activity.owner.username do %>
+        <%= gravatar_tag activity.owner.email, size: 25, html: {class: "img-fluid border rounded", title: activity.owner.username } %>
+      <% end %>
+    </span>
+    just retweeted a gabble  from
+    <span>
+      <%= link_to  activity.recipient.username do %>
+        <%= gravatar_tag activity.recipient.email, size: 25, html: {class: "img-fluid border rounded", title: activity.recipient.username} %>
+      <% end %>
+    </span>
+    <span class="text-muted">about <%= time_ago_in_words(activity.created_at) %> ago</span>
+  </li>
+<% end %>
