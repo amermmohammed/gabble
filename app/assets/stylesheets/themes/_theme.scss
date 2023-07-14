@@ -2,14 +2,14 @@
 
 :root,
 :root.light-theme {
-  --bg-color: #fcf5f2;
+  --bg-color: #f6f8fc;
   --text-color: #0d0503;
-  --card-bg-color:  #f0e9e6;
-  --accent-color: #f2d1c3;
-  --primary-color: #e9a990;
+  --card-bg-color: #f0e9e6;
+  --accent-color: #c2e4ff;
+  --primary-color: #d3fdfa;
   --secondary-color: #f9e8e1;
   --border-color: var(--accent-color);
-  --accent-hover: #e9a99069;
+  --accent-hover: #c2e7ff69;
 }
 
 :root.dark-theme {

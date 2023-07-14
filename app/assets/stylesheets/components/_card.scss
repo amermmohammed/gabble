@@ -3,4 +3,5 @@
 
 .tweet-card {
   @include card;
+  background: var(--accent-hover);
 }
