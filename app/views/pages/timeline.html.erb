@@ -22,6 +22,7 @@
                         gabbled:</p>
                       <div class="blockquote d-flex"><%= raw(activity.trackable.content_html) %></div>
                       <%= render "tweets/like_and_dislike_buttons", tweet: activity.trackable %>
+                      <%= render "tweets/retweet_button", tweet: activity.trackable if user_signed_in? && activity.trackable.user_id != current_user.id %>
                       <hr>
                       <%= render "comments/form", tweet: activity.trackable %>
                       <div id="comments-<%= activity.trackable.id %>">

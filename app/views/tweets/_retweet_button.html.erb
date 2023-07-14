@@ -1,0 +1,6 @@
+<%= link_to retweets_path(tweet_id: tweet.id), method: :post, class: 'retweet' do %>
+  <button type="button" class="btn btn-sm btn-success">
+    retweet <i class="fa fa-retweet"></i>
+    <span><%= tweet.retweets.size %></span>
+  </button>
+<% end %>

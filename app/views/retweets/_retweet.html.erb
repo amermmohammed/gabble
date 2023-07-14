@@ -1,0 +1,32 @@
+<div class="tweet-card tweet-<%= retweet.origin_tweet.id %>">
+  <div class="tweet-card activity-card">
+    <%= retweet.retweeter.username %>
+    reposted this <%= time_ago_in_words(retweet.created_at) %> ago
+    <% if user_signed_in? && current_user == retweet.retweeter %>
+      <%= link_to "Delete", retweet_path(retweet), method: :delete, class: "btn btn-danger" %>
+    <% end %>
+  </div>
+  <div class="card-header">
+    <%= gravatar_tag retweet.origin_tweet.user.email, size: 40, :html => {class: "rounded-circle"} %>
+    <% retweet.origin_tweet.user.username %> gabbled
+    <%= time_ago_in_words(retweet.origin_tweet.created_at) %> ago
+    <% if user_signed_in? && current_user == retweet.origin_tweet.user %>
+      <%= link_to 'Edit', edit_tweet_path(retweet.origin_tweet), class: 'btn btn-primary btn-sm' %>
+      <%= link_to 'Delete', tweet_path(retweet.origin_tweet), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+    <% end %>
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      <%= raw(retweet.origin_tweet.content_html) %>
+      <%= render "tweets/like_and_dislike_buttons", tweet: retweet.origin_tweet %>
+      <%= render "tweets/retweet_button", tweet: retweet.origin_tweet if user_signed_in? && retweet.origin_tweet.user_id != current_user.id %>
+    </p>
+    <hr>
+    <div class="card-body">
+      <%= render 'comments/form', tweet: retweet.origin_tweet %>
+    </div>
+    <div id="comments-<%= retweet.origin_tweet.id %>">
+      <%= render retweet.origin_tweet.comments.reverse %>
+    </div>
+  </div>
+</div>
