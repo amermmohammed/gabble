@@ -21,8 +21,11 @@ class User < ApplicationRecord
   # tweets
   has_many :tweets, dependent: :destroy # if user is deleted, all tweets are deleted
   has_many :comments, dependent: :destroy # if user is deleted, all comments are deleted
-  # defining following, unfollow events
 
+  # retweets
+  has_many :retweets, dependent: :destroy, foreign_key: "retweeter_id" # if user is deleted, all retweets are deleted
+
+  # defining following, unfollow events
   def follow(user)
     active_relationships.create(followed_id: user.id)
   end

@@ -23,6 +23,10 @@ Rails.application.routes.draw do
 
   # Define comments resources
   resources :comments, only: [:create, :destroy]
+
+  # Define retweets resources
+  resources :retweets, only: [:create, :destroy]
+
   # Defines the root path route ("/")
   # root "articles#index"
 end
