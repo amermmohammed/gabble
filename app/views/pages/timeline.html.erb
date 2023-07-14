@@ -44,11 +44,20 @@
                       Followed
                       <%= link_to activity.recipient.username, user_path(activity.recipient.username), class: "nav-link text-success" %>
                     </p>
+                  <% when "Comment" %>
+                    <p class="lead">
+                      <%= link_to activity.owner.username do %>
+                        <%= gravatar_tag activity.owner.email, size: 25, html: {class: "img-fluid border rounded", title: activity.owner.username } %>
+                      <% end %>
+                      Replayed on a gabble "<%= ActionView::Base.full_sanitizer.sanitize(activity.trackable.comment.truncate(10)) %>"
+                    <span class="text-muted"><%= time_ago_in_words(activity.created_at) %> ago</span>
+                    </p>
                   <% end %>
                   <span class="text-muted"><%= time_ago_in_words(activity.created_at) %> ago</span>
                   <% if activity.trackable.updated_at != activity.trackable.created_at %>
                     <span class="blockquote-footer text-danger">This gabble was edited <%= time_ago_in_words(activity.trackable.updated_at) %>
-                      ago</span>
+                      ago
+                    </span>
                   <% end %>
                 </div>
               </div>

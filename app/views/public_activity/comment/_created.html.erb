@@ -1,0 +1,8 @@
+<% if activity.trackable %>
+  <li class="list-group-item">
+    <%= gravatar_tag activity.owner.email, size: 25, html: {class: "img-fluid border rounded", title: activity.owner.username } %>
+    <%= link_to activity.owner.username, user_path(activity.owner.username) %>
+    commented on a gable
+    <span class="text-muted"><%= time_ago_in_words(activity.created_at) %> ago</span>
+  </li>
+<% end %>
