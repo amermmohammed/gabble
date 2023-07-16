@@ -3,6 +3,7 @@
 //= require bootstrap
 //= require jquery3
 //= require jquery_ujs
+//= require jquery.atwho
 
 import { application } from "controllers/application"
 
