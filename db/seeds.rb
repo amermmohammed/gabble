@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-=begin
 users = User.create([
   { username: "johndoe",
     email: "johndoe@gmail.com",
@@ -37,7 +36,6 @@ users = User.create([
 users.each do |user|
   puts "Created user: #{user.username}"
 end
-=end
 
 
 # Seed Users Tweets

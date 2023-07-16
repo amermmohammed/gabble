@@ -1,0 +1,9 @@
+<% if activity.trackable && activity.recipient.id != @user.id %>
+  <li class="list-group-item">
+    <%= link_to activity.owner.username, activity.owner %>
+    mentioned
+    <%= link_to activity.recipient.username, activity.recipient %>
+    in a gabble
+    <%= time_ago_in_words(activity.trackable.updated_at) %> ago.
+  </li>
+<% end %>

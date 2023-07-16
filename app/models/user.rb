@@ -40,4 +40,12 @@ class User < ApplicationRecord
       following.include?(user)
   end
 
+  def self.mentions(letters)
+    return User.none unless letters.present?
+    users = User.limit(8).where("username like ?", "#{letters}%")
+    users.map { |user|
+      { name: user.username }
+    }
+  end
+
 end

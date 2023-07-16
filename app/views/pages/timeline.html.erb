@@ -38,6 +38,13 @@
                         <%= link_to activity.owner.username, user_path(activity.owner.username), class: "nav-link text-danger"  %>
                         Disliked a gabble
                       </p>
+                    <% when "tweet.mention" %>
+                      <p class="lead">
+                        <%= link_to activity.owner.username, user_path(activity.owner.username), class: "nav-link text-danger" %>
+                        Mentioned
+                        <%= link_to activity.recipient.username, user_path(activity.recipient.username), class: "nav-link text-success"  %>
+                        in a gabble
+                      </p>
                     <% end %>
                   <% when "Relationship" %>
                     <p class="lead">

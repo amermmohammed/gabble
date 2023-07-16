@@ -48,7 +48,7 @@ gem 'acts_as_votable', '~> 0.14.0'
 gem 'acts_as_commentable', git: 'https://github.com/alazycoder101/acts_as_commentable.git'
 
 # add rails jQuery Atwho to the project
-gem "jquery-atwho-rails", "~> 1.3.0"
+gem 'jquery-atwho-rails', '~> 1.5'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

@@ -31,3 +31,25 @@ const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'dark') {
     toggleTheme(); // If dark theme is saved, apply it on page load
 }
+
+
+
+jQuery(function() {
+    $('#tweet_content').atwho({
+        at: '@',
+        callbacks: {
+            remoteFilter: function(query, callback) {
+                if (query.length < 1) {
+                    return false;
+                } else {
+                    return $.getJSON('/users.json', {
+                        q: query
+                    }, function(data) {
+                        console.log(data);
+                        return callback(data);
+                    });
+                }
+            }
+        }
+    });
+});

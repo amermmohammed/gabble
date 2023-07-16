@@ -11,6 +11,13 @@ class UsersController < ApplicationController
     else
       @users = User.all.order(created_at: :desc)
     end
+
+    respond_to do |format|
+      format.html
+      format.json {
+        render :json => User.mentions(params[:q])
+      }
+    end
   end
 
   def show
