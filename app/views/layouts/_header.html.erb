@@ -22,27 +22,49 @@
             <%= gravatar_tag current_user.email, size: 40, html: {class: "rounded-circle"} %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", user_path(current_user.username) , class: "dropdown-item" %>
-            <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to user_path(current_user.username) , class: "dropdown-item d-flex align-items-center gap-2" do %>
+              <i class="fa-regular fa-address-card"></i>
+              <%= current_user.username.upcase %>'s Profile
+            <% end %>
+            <%= link_to edit_user_registration_path, class: "dropdown-item d-flex align-items-center gap-2" do %>
+              <i class="fa-solid fa-gear"></i>
+              Settings
+            <% end %>
             <div class="dropdown-divider"></div>
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item d-flex align-items-center gap-2" do %>
+              <i class="fa-solid fa-right-from-bracket"></i>
+              Sign Out
+            <% end %>
           </div>
         </li>
 
         <li class="nav-item">
-          <%= link_to "The Wall", root_path, class: "nav-link" %>
+          <!-- font awesome wall icon -->
+          <%= link_to root_path, class: "nav-link" do %>
+            <i class="fa-solid fa-comments me-2"></i>
+            The Lounge
+          <% end %>
         </li>
 
         <li class="nav-item">
-          <%= link_to "Gabblers", gabblers_path, class: "nav-link" %>
+          <%= link_to gabblers_path, class: "nav-link" do %>
+          <i class="fa-solid fa-users me-2"></i>
+          Gabblers
+          <% end %>
         </li>
         <%= render "layouts/notifications" %>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+          <%= link_to new_user_session_path, class: "nav-link  d-flex align-items-center gap-2" do %>
+            <i class="fa-solid fa-sign-in me-2"></i>
+            Sign In
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+          <%= link_to new_user_registration_path, class: "nav-link  d-flex align-items-center gap-2" do %>
+            <i class="fa-solid fa-user-plus me-2"></i>
+            Sign Up
+          <% end %>
         </li>
       <% end %>
     </ul>

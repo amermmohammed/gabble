@@ -1,17 +1,18 @@
 <li class="nav-item dropdown my-auto mx-0">
   <%= link_to notifications_path, class: "nav-link dropdown-menu-right", "data-bs-toggle": "dropdown", remote: true, method: :post do %>
-    <%= content_tag :span, "notifications" %>
+    <i class="fa-solid fa-rss me-2"></i>
+    <%= content_tag :span, "Notifications" %>
       <% if @notifications.size > 0 %>
-      <span class="badge badge-pill badge-danger notifications-count">
-        <i class="fa fa-bell-o " aria-hidden="true"></i>
+      <span class="badge badge-pill badge-danger notifications-count ms-1">
+        <i class="fa fa-bell-o text-danger" aria-hidden="true"></i>
         <%= @notifications.size if @notifications.size > 0 %>
       </span>
       <% end %>
   <% end %>
   <div class="dropdown-menu" aria-labelledby="navbarDropdown" data-bs-popper="static">
     <% if @notifications.size <= 0%>
-      <a href="#" class="dropdown-item">
-        No notifications
+      <a href="#" class="dropdown-item text-danger">
+        No notifications!
       </a>
     <% else %>
       <% @notifications.each do |notification| %>

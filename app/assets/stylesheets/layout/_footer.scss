@@ -1,9 +1,21 @@
+.footer-section {
+  .footer-list {
+    color: var(--text-color);
+    &:hover {
+      color: rgba(var(--bs-danger-rgb), 0.75);
+    }
+  }
+}
+
 .copyright {
   .footer-logo {
     img {
       width: 100px;
       height: 100px;
     }
+  }
+  .copyright-text {
+      color: var(--text-color);
   }
 }
 

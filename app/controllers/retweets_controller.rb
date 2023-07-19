@@ -6,7 +6,7 @@ class RetweetsController < ApplicationController
       retweet.create_activity key: "retweet.created", owner: current_user, recipient: retweet.origin_tweet.user
       redirect_to user_path(current_user.username), notice: "Retweeted!"
     else
-      redirect_back fallback_location: root_path, alert: "Retweet failed!"
+      redirect_back fallback_location: root_path, alert: "Retweet failed! Did you try to retweet your own tweet?"
     end
   end
 
