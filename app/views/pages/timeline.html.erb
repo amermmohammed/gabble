@@ -58,7 +58,6 @@
                         <%= gravatar_tag activity.owner.email, size: 25, html: {class: "img-fluid border rounded", title: activity.owner.username } %>
                       <% end %>
                       Replayed on a gabble "<%= ActionView::Base.full_sanitizer.sanitize(activity.trackable.comment.truncate(10)) %>"
-                    <span class="text-muted"><%= time_ago_in_words(activity.created_at) %> ago</span>
                     </p>
                   <% when "Retweet" %>
                     <p class="lead">
