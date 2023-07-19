@@ -11,12 +11,16 @@
       &.dropdown {
         flex-direction: column;
         align-items: flex-start;
-       .nav-link {
-        margin-right: 1rem;
+         .nav-link {
+          margin-right: 1rem;
         }
       }
       .nav-link {
         display: flex;
+        color: var(--text-color);
+        &:hover {
+            color: rgba(var(--bs-danger-rgb), 0.75);
+        }
       }
     }
   }

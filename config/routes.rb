@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "registrations" }
-  root 'pages#timeline'
+  root "pages#timeline"
 
 
   resources :users, only: [:index, :show] do
@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: [:create, :destroy]
-  get 'pages/timeline'
-  get 'gabblers', to: 'users#index'
-
+  get "pages/timeline"
+  get 'gabblers', to: "users#index"
+  post :notifications, to: "notifications#mark_all_read"
   resources :tweets, only: [:create, :edit, :update, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

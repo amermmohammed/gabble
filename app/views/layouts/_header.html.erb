@@ -36,6 +36,7 @@
         <li class="nav-item">
           <%= link_to "Gabblers", gabblers_path, class: "nav-link" %>
         </li>
+        <%= render "layouts/notifications" %>
       <% else %>
         <li class="nav-item">
           <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
